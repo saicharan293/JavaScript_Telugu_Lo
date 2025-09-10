@@ -1,4 +1,4 @@
-//1:58:49 time stamp
+//2:07:58 time stamp
 
 //Browser lo em movement chesina Event anedi raise avuddi, ikkada Event ante, present page situation
 //change avuddi
@@ -37,3 +37,13 @@
 // inp.addEventListener("input", function(){
 //     console.log("type chesavv ga macha");
 // })
+// ikkada eppudaithe input lo type cheyatam or data enter cheyatam start chestamo, input event call aitadi
+// so, prathi okka button enter ki, input event activate ayyi, function call jarugutadi, 
+// anduke console lo unna data log aitadi
+
+// let inp=document.querySelector("input");
+// inp.addEventListener("input", function(data){
+//     console.log(data.data);
+// })
+
+// ikkada data ane object lo input lo enter chesina log aitadi, adi dynamic ga display aitadi
