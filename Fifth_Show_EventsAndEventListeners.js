@@ -1,4 +1,4 @@
-//2:23:22 time stamp
+//3:20:27 time stamp
 
 //Browser lo em movement chesina Event anedi raise avuddi, ikkada Event ante, present page situation
 //change avuddi
@@ -105,15 +105,65 @@
 // 7. Data lo target object lo files ane array of keys and values dorukuntundi, aa list lo first key anedi file name ni store chesukuntadi. 
 // 8. Aa name ni custom element ki icheste set
 
-let fileUpload = document.querySelector("#btn");
-let realUpload = document.querySelector("#fileInp");
-fileUpload.addEventListener("click",()=>{
-    realUpload.click();
-})
+// let fileUpload = document.querySelector("#btn");
+// let realUpload = document.querySelector("#fileInp");
+// fileUpload.addEventListener("click",()=>{
+//     realUpload.click();
+// })
 
-realUpload.addEventListener("change", (det)=>{
-   let isFile = det.target.files[0];
-   if(isFile){
-    fileUpload.textContent=isFile.name;
-   } 
+// realUpload.addEventListener("change", (det)=>{
+//    let isFile = det.target.files[0];
+//    if(isFile){
+//     fileUpload.textContent=isFile.name;
+//    } 
+// })
+
+
+//---------------------
+
+// ikkada manam form handling nerchukuntunnamu
+// eppudu aithe dynamic data tho form submit chestamo 
+// appudu form lo unna data, card lo reflect ayyelaga chudali ante first page refresh/reload ni aapali
+// adi preventDefault() function tho stop cheyachu
+// next andulo elements ni create chesi, main div tag ku append chesaka, all input elements except submit button lo text ni empty ga cheste, form submission aipoddi
+
+
+let form = document.querySelector("form");
+let allInps = document.querySelectorAll("input");
+
+form.addEventListener("submit",(e)=>{
+    e.preventDefault();
+
+    let cardDiv = document.createElement("div");
+    cardDiv.classList.add("card");
+
+    let profileDiv = document.createElement("div");
+    profileDiv.classList.add("profile");
+
+    let imgEle = document.createElement("img");
+    imgEle.setAttribute("src", allInps[0].value);
+
+    let h3Ele = document.createElement("h3");
+    h3Ele.textContent = allInps[1].value;
+    let h5Ele = document.createElement("h5");
+    h5Ele.textContent = allInps[2].value;
+    let pEle = document.createElement("p");
+    pEle.textContent = allInps[3].value;
+
+
+    profileDiv.appendChild(imgEle);
+    cardDiv.appendChild(profileDiv);
+    cardDiv.appendChild(h3Ele);
+    cardDiv.appendChild(h5Ele);
+    cardDiv.appendChild(pEle);
+    
+    document.querySelector("#main").append(cardDiv);
+
+    allInps.forEach((e)=>{
+        if(e.type!=="submit"){
+            e.value=""
+        }
+    })
+
+
 })
