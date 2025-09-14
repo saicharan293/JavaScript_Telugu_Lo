@@ -1,4 +1,4 @@
-//2:07:58 time stamp
+//2:12:51 time stamp
 
 //Browser lo em movement chesina Event anedi raise avuddi, ikkada Event ante, present page situation
 //change avuddi
@@ -46,4 +46,15 @@
 //     console.log(data.data);
 // })
 
-// ikkada data ane object lo input lo enter chesina log aitadi, adi dynamic ga display aitadi
+// ikkada data ane object lo input lo enter chesina text anedi console output lo kanipistadi, adi dynamic ga display aitadi
+
+//iF, data anedi null aithe?
+// appudu, first manam data !== null ane condition check chesi, print chestam, 
+// ikkada okavela data anedi null aithe
+// aa condition ni satisfy cheyadu, kabatte asalu emi print avvadu
+let inp=document.querySelector("input");
+inp.addEventListener("input", function(data){
+    if(data.data!==null){
+        console.log(data.data);
+    }
+})
