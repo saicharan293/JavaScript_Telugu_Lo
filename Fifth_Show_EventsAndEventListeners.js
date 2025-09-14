@@ -79,3 +79,15 @@
 // select.addEventListener("change",(data)=>{
 //     h1.textContent=`${data.target.value.charAt(0).toUpperCase()+data.target.value.slice(1)} is selected`;
 // })
+
+
+let h1 = document.querySelector("h1");
+
+window.addEventListener("keydown",(det)=>{
+    console.log(det);
+    if(det.key === " "){
+        h1.textContent="SPC";
+    }else{
+        h1.textContent=det.key;
+    }
+})
