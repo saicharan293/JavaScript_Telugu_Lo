@@ -81,13 +81,39 @@
 // })
 
 
-let h1 = document.querySelector("h1");
+// let h1 = document.querySelector("h1");
 
-window.addEventListener("keydown",(det)=>{
-    console.log(det);
-    if(det.key === " "){
-        h1.textContent="SPC";
-    }else{
-        h1.textContent=det.key;
-    }
+// window.addEventListener("keydown",(det)=>{
+//     console.log(det);
+//     if(det.key === " "){
+//         h1.textContent="SPC";
+//     }else{
+//         h1.textContent=det.key;
+//     }
+// })
+
+
+//--------------------
+// so general file anedi chala normal ga untadi,
+// danni customized file laga cheyali ante
+// 1. oka file input ni teesukoni, danni hide cheyali
+// 2. custom file element ni create cheyali
+// 3. eppudu aithe custom file ni click chestamo, real file input "click" add eventlister tho activate cheyali
+// 4. appudu real file activate ayyi, file choose chesukune option istadi
+// 5. ippudu oka file choose chesukunnaka, aa file name ni custom element place lo ravali ante, 
+// 6. real file ki "change" add eventlistener ni call cheyali. 
+// 7. Data lo target object lo files ane array of keys and values dorukuntundi, aa list lo first key anedi file name ni store chesukuntadi. 
+// 8. Aa name ni custom element ki icheste set
+
+let fileUpload = document.querySelector("#btn");
+let realUpload = document.querySelector("#fileInp");
+fileUpload.addEventListener("click",()=>{
+    realUpload.click();
+})
+
+realUpload.addEventListener("change", (det)=>{
+   let isFile = det.target.files[0];
+   if(isFile){
+    fileUpload.textContent=isFile.name;
+   } 
 })

@@ -24,17 +24,28 @@
             align-items: center;
         }
 
-        h1{
-            color: #555;
-            font-size: 10rem;
-            font-weight: 300;
-            user-select: none;
+        input{
+            display: none;
+        }
+
+        #btn{
+            padding: 12px 22px;
+            background-color: rgb(41, 143, 114);
+            font-weight: 600;
+            color: white;
+            border-radius: 8px;
+        }
+        
+        #btn:hover{
+            background-color: rgb(24, 82, 66);
+            cursor: pointer;
         }
     </style>
 </head>
 <body>
     <div id="main">
-        <h1>a</h1>
+        <input type="file" id="fileInp" >
+        <div id="btn">Upload File</div>
     </div>
     <script src="Fifth_Show_EventsAndEventListeners.js"></script>
 </body>
