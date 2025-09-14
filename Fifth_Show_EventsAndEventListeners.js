@@ -1,4 +1,4 @@
-//2:12:51 time stamp
+//2:23:22 time stamp
 
 //Browser lo em movement chesina Event anedi raise avuddi, ikkada Event ante, present page situation
 //change avuddi
@@ -52,9 +52,30 @@
 // appudu, first manam data !== null ane condition check chesi, print chestam, 
 // ikkada okavela data anedi null aithe
 // aa condition ni satisfy cheyadu, kabatte asalu emi print avvadu
-let inp=document.querySelector("input");
-inp.addEventListener("input", function(data){
-    if(data.data!==null){
-        console.log(data.data);
-    }
-})
+// let inp=document.querySelector("input");
+// inp.addEventListener("input", function(data){
+//     if(data.data!==null){
+//         console.log(data.data);
+//     }
+// })
+
+
+//Change , event handler
+//
+
+// let select = document.querySelector("select");
+// let h1 = document.querySelector("h1");
+
+// ikkada dropdown lo unna value in heading lo ki assign cheyali ante
+// first data ni log cheyali, adi list of objects ni chupistadi, andulo, target object select chesukunte,
+// andulo value ane key untadi, andulo manam dropdown lo ye value ni select chesamo, adi store aitadi
+
+// ikkada string ni js lo Capitalize cheyali ante,
+// 1. first letter of that value teesukoni (.charAt(0)), daniki .toUpperCase() method ni add chesate first letter okate Capital letter vastadi
+// 2. vachina capital letter ki aa string lo next part ni concat cheste, result is the answer
+
+// or css lo text-transform: capitalize ni apply cheste, string anedi direct ga capitalize aipotundi, js tho pani undadu
+
+// select.addEventListener("change",(data)=>{
+//     h1.textContent=`${data.target.value.charAt(0).toUpperCase()+data.target.value.slice(1)} is selected`;
+// })
