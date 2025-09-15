@@ -1,4 +1,4 @@
-//3:20:27 time stamp
+//3:30:30 time stamp
 
 //Browser lo em movement chesina Event anedi raise avuddi, ikkada Event ante, present page situation
 //change avuddi
@@ -171,12 +171,22 @@
 // mouseover ante, mouse (cursor) ni manam oka element paina hover cheyaga jarige event
 
 // mouseout ante, already oka element paina unna mouse (cursor) ni bayataku vache time lo  jarige action/event
+// let container = document.querySelector("#container");
+
+// container.addEventListener("mouseover",()=>{
+//     container.style.backgroundColor = "yellow";
+// })
+
+// container.addEventListener("mouseout", ()=>{
+//     container.style.backgroundColor = "red"
+// })
+
+
+// mousemove ante, existing mouse movement batti, event/action anedi activate aitadi
 let container = document.querySelector("#container");
+window.addEventListener("mousemove",(event)=>{
 
-container.addEventListener("mouseover",()=>{
-    container.style.backgroundColor = "yellow";
-})
-
-container.addEventListener("mouseout", ()=>{
-    container.style.backgroundColor = "red"
+    container.style.top = event.clientY+"px";
+    container.style.left = event.clientX+"px";
+ 
 })
