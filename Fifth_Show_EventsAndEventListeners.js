@@ -183,10 +183,39 @@
 
 
 // mousemove ante, existing mouse movement batti, event/action anedi activate aitadi
-let container = document.querySelector("#container");
-window.addEventListener("mousemove",(event)=>{
+// let container = document.querySelector("#container");
+// window.addEventListener("mousemove",(event)=>{
 
-    container.style.top = event.clientY+"px";
-    container.style.left = event.clientX+"px";
+//     container.style.top = event.clientY+"px";
+//     container.style.left = event.clientX+"px";
  
+// })
+
+
+// key down ante, key board lo ye button ni aina okasari press cheyaga, immediate ga event activate avtundi
+// key up ante, already press ayyi unna button ni release cheyagane, event activate avtundi
+// key press ante, manam character keys press chesinappudu release avvalsina event activate avtundi. (key press anedi character keys press chesinappudu matrame fire avtundi including symbols and not on special keys)
+
+let container = document.querySelector("#container");
+let position = { top: 0, left: 0};
+
+document.addEventListener("keydown",(event)=>{
+    const step = 10;
+    if(event.key === "ArrowUp") position.top -= step;
+    if(event.key === "ArrowDown") position.top += step;
+    if(event.key === "ArrowLeft") position.left -= step;
+    if(event.key == "ArrowRight") position.left += step;
+
+    container.style.top = position.top + "px";
+    container.style.left = position.left + "px";
+})
+
+document.addEventListener("keyup", e=>{
+    container.style.background = "green";
+    setTimeout(() =>  container.style.background="blue", 300);
+})
+
+document.addEventListener("keypress",e=>{
+    console.log("key press event for: ", e.key);
+    
 })
