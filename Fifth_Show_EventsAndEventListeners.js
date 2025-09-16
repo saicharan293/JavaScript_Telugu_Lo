@@ -196,26 +196,40 @@
 // key up ante, already press ayyi unna button ni release cheyagane, event activate avtundi
 // key press ante, manam character keys press chesinappudu release avvalsina event activate avtundi. (key press anedi character keys press chesinappudu matrame fire avtundi including symbols and not on special keys)
 
-let container = document.querySelector("#container");
-let position = { top: 0, left: 0};
+// let container = document.querySelector("#container");
+// let position = { top: 0, left: 0};
 
-document.addEventListener("keydown",(event)=>{
-    const step = 10;
-    if(event.key === "ArrowUp") position.top -= step;
-    if(event.key === "ArrowDown") position.top += step;
-    if(event.key === "ArrowLeft") position.left -= step;
-    if(event.key == "ArrowRight") position.left += step;
+// document.addEventListener("keydown",(event)=>{
+//     const step = 10;
+//     if(event.key === "ArrowUp") position.top -= step;
+//     if(event.key === "ArrowDown") position.top += step;
+//     if(event.key === "ArrowLeft") position.left -= step;
+//     if(event.key == "ArrowRight") position.left += step;
 
-    container.style.top = position.top + "px";
-    container.style.left = position.left + "px";
-})
+//     container.style.top = position.top + "px";
+//     container.style.left = position.left + "px";
+// })
 
-document.addEventListener("keyup", e=>{
-    container.style.background = "green";
-    setTimeout(() =>  container.style.background="blue", 300);
-})
+// document.addEventListener("keyup", e=>{
+//     container.style.background = "green";
+//     setTimeout(() =>  container.style.background="blue", 300);
+// })
 
-document.addEventListener("keypress",e=>{
-    console.log("key press event for: ", e.key);
+// document.addEventListener("keypress",e=>{
+//     console.log("key press event for: ", e.key);
     
+// }).
+
+//--------------------------------------------------------------
+
+// target ante, oka element paina eppudu aithe event fire aitado aa element ne target antamu
+// type ante, oka element paina eppudu aithe oka event anedi fire aitado, aa fire aina event name anede type aitadi
+// preventDefault(), idi oka form method, indulo normal ga form submit ainappudu , complete page anedi reload aitadi. 
+// ee reloading ni aapali (prevent/avoid) chesi submit cheyali ante ee method ni use chestamu 
+let container = document.querySelector("#container");
+
+container.addEventListener("click",(e)=>{
+    console.log(e);
 })
+
+
