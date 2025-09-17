@@ -1,4 +1,4 @@
-//3:30:30 time stamp
+//3:48:24 time stamp
 
 //Browser lo em movement chesina Event anedi raise avuddi, ikkada Event ante, present page situation
 //change avuddi
@@ -275,20 +275,92 @@
 // Parent meeda event call cheste, lopala unna children paina kuda work avtundi
 
 
-let ulist = document.querySelector("ul");
+// let ulist = document.querySelector("ul");
 
-ulist.addEventListener("click",(event)=>{
-    // ulist.querySelectorAll("li").forEach(e=>{
-    //     e.style.textDecoration="none"
-    // })
-    // event.target.style.textDecoration="line-through";
-    ulist.querySelectorAll("li").forEach(e=>{
-        e.classList.remove("lt");
-    })
-    event.target.classList.toggle("lt");
-})
+// ulist.addEventListener("click",(event)=>{
+//     // ulist.querySelectorAll("li").forEach(e=>{
+//     //     e.style.textDecoration="none"
+//     // })
+//     // event.target.style.textDecoration="line-through";
+//     ulist.querySelectorAll("li").forEach(e=>{
+//         e.classList.remove("lt");
+//     })
+//     event.target.classList.toggle("lt");
+// })
 
 // ikkada already elements paina unna style ni remove chesaka, 
 // current element paina style ni toggle/add chesanu
 // ala kakunda anni elements paina alane undali ante, 
 // related forEach loop ni teeseyali
+
+//-------------------------------------------------------------------
+
+// ikkada, anni elements paina event Listener add chesamu, inner child lo unna event listener ni activate chesinappudu (element paina click chesinappudu), respective function call aitundi
+
+// inner child yokka parent element paina edaina event listener unte, adi kuda call avtundi, and ee process ala outer parents ki flow avtundi kabatte idi "Event Bubbling" antaru
+
+
+// let a = document.querySelector(".a");
+// let b = document.querySelector(".b");
+// let c = document.querySelector(".c");
+// let btn = document.querySelector("button");
+
+// btn.addEventListener("click", ()=>{
+//     console.log("Button clicked");
+// });
+
+// c.addEventListener("click",()=>{
+//     console.log("c clicked");
+// })
+
+// b.addEventListener("click",()=>{
+//     console.log("b clicked");
+// })
+
+// a.addEventListener("click",()=>{
+//     console.log("a clicked");
+// })
+
+// Note: Parent Element paina unna event listener activate ainappudu, 
+// lopala children elements ki kuda activate aitundi, daniki example list items in ul
+// group of list items paina individual event listener ni add cheyatam kante, dani paina unna parent element ki event listener ni add cheste, adi lopala unna children elements ki kuda apply ayyela cheyatame "Event Delegation" antamu.
+
+
+//--------------------------------------------------------------
+// Event Capturing :-
+
+// oka vela inner child lo oka event call chesam anukondi, 
+// inner child lo unna function call avvakunda, 
+// most outer side parents lo deniki aithe event call undo, 
+// aa function first call jarugutadi, danni "Event Capturing" antamu
+
+// js lo first Capture phase (default off) inbuilt check jarugutadi
+// Capture phase off lo untadi kabatte bubbling jarugutadi
+
+// Capture Phase activate cheyali ante, event listener ki end lo "true" ni add cheyali. 
+// Dani valla aa element ki capture phase activate ayyi, first aa element lo unna function call avtundi
+
+
+let a = document.querySelector(".a");
+let b = document.querySelector(".b");
+let c = document.querySelector(".c");
+let btn = document.querySelector("button");
+
+btn.addEventListener("click", ()=>{
+    console.log("Button clicked");
+});
+
+c.addEventListener("click",()=>{
+    console.log("c clicked");
+}, true)
+
+b.addEventListener("click",()=>{
+    console.log("b clicked");
+})
+
+a.addEventListener("click",()=>{
+    console.log("a clicked");
+}, true)
+
+
+
