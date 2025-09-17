@@ -341,26 +341,39 @@
 // Dani valla aa element ki capture phase activate ayyi, first aa element lo unna function call avtundi
 
 
-let a = document.querySelector(".a");
-let b = document.querySelector(".b");
-let c = document.querySelector(".c");
-let btn = document.querySelector("button");
+// let a = document.querySelector(".a");
+// let b = document.querySelector(".b");
+// let c = document.querySelector(".c");
+// let btn = document.querySelector("button");
 
-btn.addEventListener("click", ()=>{
-    console.log("Button clicked");
-});
+// btn.addEventListener("click", ()=>{
+//     console.log("Button clicked");
+// });
 
-c.addEventListener("click",()=>{
-    console.log("c clicked");
-}, true)
+// c.addEventListener("click",()=>{
+//     console.log("c clicked");
+// }, true)
 
-b.addEventListener("click",()=>{
-    console.log("b clicked");
+// b.addEventListener("click",()=>{
+//     console.log("b clicked");
+// })
+
+// a.addEventListener("click",()=>{
+//     console.log("a clicked");
+// }, true)
+
+// -----------------------------------
+
+//Live Character counter
+
+let input = document.querySelector("input");
+let span = document.querySelector("span");
+input.addEventListener("input",(e)=>{
+    span.textContent = e.target.value.length;
 })
 
-a.addEventListener("click",()=>{
-    console.log("a clicked");
-}, true)
+
+
 
 
 
