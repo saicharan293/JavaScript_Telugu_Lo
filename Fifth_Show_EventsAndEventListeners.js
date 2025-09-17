@@ -1,4 +1,4 @@
-//3:48:24 time stamp
+//4:13:39 time stamp
 
 //Browser lo em movement chesina Event anedi raise avuddi, ikkada Event ante, present page situation
 //change avuddi
@@ -369,7 +369,13 @@
 let input = document.querySelector("input");
 let span = document.querySelector("span");
 input.addEventListener("input",(e)=>{
-    span.textContent = e.target.value.length;
+    let left = 20 - e.target.value.length;
+    span.textContent = 20 - e.target.value.length;
+    if(left < 0){
+        span.style.color="red";
+    }else{
+        span.style.color="white";
+    }
 })
 
 
