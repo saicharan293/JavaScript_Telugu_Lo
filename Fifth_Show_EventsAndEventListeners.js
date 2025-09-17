@@ -226,10 +226,10 @@
 // type ante, oka element paina eppudu aithe oka event anedi fire aitado, aa fire aina event name anede type aitadi
 // preventDefault(), idi oka form method, indulo normal ga form submit ainappudu , complete page anedi reload aitadi. 
 // ee reloading ni aapali (prevent/avoid) chesi submit cheyali ante ee method ni use chestamu 
-let container = document.querySelector("#container");
+// let container = document.querySelector("#container");
 
-container.addEventListener("click",(e)=>{
-    console.log(e);
-})
+// container.addEventListener("click",(e)=>{
+//     console.log(e);
+// })
 
 
