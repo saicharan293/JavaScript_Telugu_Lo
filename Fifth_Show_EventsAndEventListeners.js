@@ -232,4 +232,40 @@
 //     console.log(e);
 // })
 
+//--------------------------------------------------------------------------------
 
+// Event Bubbling ante,
+// oka grand child element paina oka event call cheyali anukunnam, 
+// kani event listener anedi, grand parent paina undi anukundam. oka vela grand child element paina ade event ni call cheste, 
+// grand parent paina unna event call avtundi
+
+//-----------------
+//| A "click"     |
+//| |-------------|
+//| | B           |
+//| |             |
+//| |  |----------|
+//| |  | C        |
+//| |  |          |
+//| |  |          |
+//| |  |          |
+//-----------------
+
+// ikkada A anedi grand parent anukondi, C anedi grand child anukondi, c lo "click"  event listener ni call chesinappudu, 
+// C pain event listener ye lekaphte, next B element ni check chestadi, oka vela B lo unte adi call avtundi, 
+// ledante last "A" lo check chesi, akkada "click" event unte call avtadi
+// Ee process ne "Event Bubbling" antaru
+
+// check the below example:
+// "click" ante "Event Listener" ni nav id unna element ki ichamu, 
+// kani nav bar lo button ki separate ga emi ivvaledu. For suppose,
+// okavela nav bar lo unna button paina kani "click" cheste, 
+// appudu button paina "click" event listener kosam check chestadi, 
+// kani button paina emi ledu kabatte next parent aina nav id unna div element ni check chestadi, 
+// akkada "click" event listener dorikindi kabatte, danne call chestadi
+
+let nav = document.querySelector("#nav");
+
+nav.addEventListener("click",()=>{
+    alert("came from nav")
+})
