@@ -264,8 +264,31 @@
 // kani button paina emi ledu kabatte next parent aina nav id unna div element ni check chestadi, 
 // akkada "click" event listener dorikindi kabatte, danne call chestadi
 
-let nav = document.querySelector("#nav");
+// let nav = document.querySelector("#nav");
 
-nav.addEventListener("click",()=>{
-    alert("came from nav")
+// nav.addEventListener("click",()=>{
+//     alert("came from nav")
+// })
+
+
+//Note: Event bubbling ante almost like inheriting from parent element annattu. 
+// Parent meeda event call cheste, lopala unna children paina kuda work avtundi
+
+
+let ulist = document.querySelector("ul");
+
+ulist.addEventListener("click",(event)=>{
+    // ulist.querySelectorAll("li").forEach(e=>{
+    //     e.style.textDecoration="none"
+    // })
+    // event.target.style.textDecoration="line-through";
+    ulist.querySelectorAll("li").forEach(e=>{
+        e.classList.remove("lt");
+    })
+    event.target.classList.toggle("lt");
 })
+
+// ikkada already elements paina unna style ni remove chesaka, 
+// current element paina style ni toggle/add chesanu
+// ala kakunda anni elements paina alane undali ante, 
+// related forEach loop ni teeseyali
