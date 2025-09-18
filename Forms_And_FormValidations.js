@@ -50,10 +50,24 @@ let passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%
 
 form.addEventListener("submit", (e)=>{
     e.preventDefault();
+    let isValid = true;
     if(!Emailregex.test(email.value)){
-        document.querySelector(".error").style.display="block";
-    }else{
-        document.querySelector(".error").style.display="block";
+        document.querySelector("#emailError").style.display="block";
+        isValid=false;
+    }
+    else{
+        document.querySelector("#emailError").style.display="none";
+    }
+
+    if(!passwordRegex.test(password.value)){
+        document.querySelector("#passwordError").style.display="block";
+        isValid=false
+    }
+    else{
+        document.querySelector("#passwordError").style.display="none";
+    }
+
+    if(isValid){
+        document.querySelector("#resultMessage").textContent = "Everything is correct"
     }
 })
-
