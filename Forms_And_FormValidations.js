@@ -1,12 +1,12 @@
 
-//4:30:25 time stamp
+//4:45:51 time stamp
 
 // Form validations
 // name anedi ikkada type text avtadi, so dani yokka length batti custom validation messages vachela cheyachu
 
-let uname = document.querySelector("#name");
-let unameRegex = /^[a-zA-Z0-9_]{3,20}$/
-let form = document.querySelector("form");
+// let uname = document.querySelector("#name");
+// let unameRegex = /^[a-zA-Z0-9_]{3,20}$/
+// let form = document.querySelector("form");
 
 // email validation using regex
 // let regex= /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
@@ -19,19 +19,41 @@ let form = document.querySelector("form");
 //\.[a-zA-Z]{2,}$, ikkada \ ni use chesi dot(.) ane escape character ni consider ayyelaga chustam, next small and capital alphabets ni allow chestu, minimum 2 characters unde laga chustam
 
 
-let email = document.querySelector("#email")
+// let email = document.querySelector("#email")
+
+// form.addEventListener("submit", (e)=>{
+//     e.preventDefault()
+//     if(uname.value.length < 3){
+//         document.querySelector(".hide").style.display="initial";
+//     }
+//     else{
+//         document.querySelector(".hide").style.display="none";
+//     }
+//     let regex= /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
+
+//     let isEmailValid = regex.test(email);
+//     console.log(isEmailValid);
+    
+// })
+
+//------------------------------------------------------------------------------
+//Email password validator
+
+let email = document.querySelector("#email");
+let password = document.querySelector("#password");
+
+let form = document.querySelector("form");
+let Emailregex= /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
+let passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{5,}$/
+
+
 
 form.addEventListener("submit", (e)=>{
-    e.preventDefault()
-    if(uname.value.length < 3){
-        document.querySelector(".hide").style.display="initial";
+    e.preventDefault();
+    if(!Emailregex.test(email.value)){
+        document.querySelector(".error").style.display="block";
+    }else{
+        document.querySelector(".error").style.display="block";
     }
-    else{
-        document.querySelector(".hide").style.display="none";
-    }
-    let regex= /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
-
-    let isEmailValid = regex.test(email);
-    console.log(isEmailValid);
-    
 })
+
