@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Download Simulation</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #1f2937, #111827);
+      font-family: sans-serif;
+      color: white;
+    }
+
+    .card {
+      width: 300px;
+      padding: 20px;
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(10px);
+      text-align: center;
+    }
+
+    .file-name {
+      margin-bottom: 12px;
+      font-weight: bold;
+    }
+
+    .progress-bar {
+      width: 100%;
+      height: 12px;
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 999px;
+      overflow: hidden;
+      margin-bottom: 10px;
+    }
+
+    .progress-fill {
+      width: calc(var(--progress, 0) * 1%);
+      height: 100%;
+      background: linear-gradient(90deg, #34d399, #3b82f6);
+      transition: width 0.3s ease;
+    }
+
+    .status {
+      font-size: 14px;
+      opacity: 0.8;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card" id="downloadCard" style="--progress: 0;">
+    <div class="file-name">example-file.zip</div>
+    <div class="progress-bar">
+      <div class="progress-fill" id="progressFill" style="--progress: 0;"></div>
+    </div>
+    <div class="status" id="statusText"><span>0</span>% • Downloading...</div>
+  </div>
+
+  <script src="DownloadSimulation.js"></script>
+
+</body>
+</html>
