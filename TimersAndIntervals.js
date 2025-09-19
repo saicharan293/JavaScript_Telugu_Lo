@@ -35,10 +35,18 @@
 // Counter from 10 to 0
 // first count ni positive check cheyali, positive aithe value ni decrement cheyali, 
 // negative value vachindi ante interval ni clear cheseyali
-let count = 10;
-let SI = setInterval(()=>{
-    console.log(count);
-    if(count > 1) count--;
-    else clearInterval(SI);
-}, 1000);
+// let count = 10;
+// let SI = setInterval(()=>{
+//     console.log(count);
+//     if(count > 1) count--;
+//     else clearInterval(SI);
+// }, 1000);
+
+//----------------------------------------------------------------------------------
+
+//setTimeout and setInterval
+// ee two concepts ki main difference cheppali ante "Alarm" ni example ga teesukondi, 
+// ee "Alaram" lo Snooze anedi setInterval(()=>{},) concept paina work aitadi. 
+// Ala kakunda nenu work chestunna anukondi, naku oka 10 minutes Nap time kavali anukondi, 
+// nen setTimeout(()=>{},) use chestanu, endukante naku aa alarm okasari vaste chalu.
 
