@@ -1,3 +1,5 @@
+// 5: 30: 50
+
 // Local storage ante, browser ki data base lantidi, 
 // ante okasari andulo data save cheste, 
 // browser close chesina kani, data delete avvadu
@@ -33,8 +35,8 @@
 
 //-----------------------------------------------------------
 
-sessionStorage.setItem("tempo","jst like that");
-console.log(sessionStorage.getItem("tempo"));
-sessionStorage.removeItem("tempo");
+// sessionStorage.setItem("tempo","jst like that");
+// console.log(sessionStorage.getItem("tempo"));
+// sessionStorage.removeItem("tempo");
 
 //----------------------------------------------------------
