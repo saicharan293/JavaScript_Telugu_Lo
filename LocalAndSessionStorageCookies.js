@@ -14,18 +14,27 @@
 //Local Storage
 // Data ni store cheyali ante localStorage.setItem("--var-name","--data")
 
-localStorage.setItem("just","dat");
+// localStorage.setItem("just","dat");
 
 // localStorage lo store aina data ni get cheyali ante localStorage.getItem("--var-name")
 
-let val=localStorage.getItem("just");
-console.log(val);
+// let val=localStorage.getItem("just");
+// console.log(val);
 
 // Local Storage lo store aina data ni delete cheyali ante localStorage.removeItem("--var-name")
 
-localStorage.removeItem("just");
+// localStorage.removeItem("just");
 
 // Kani Local storage lo update cheyali anna kani, setItem ne use chestamu, endukante setItem lo same variable ki malli different value tho update cheste, ade update
 
-localStorage.setItem("just","dat");
-localStorage.setItem("just", "change")
+// localStorage.setItem("just","dat");
+// localStorage.setItem("just", "change");
+
+
+//-----------------------------------------------------------
+
+sessionStorage.setItem("tempo","jst like that");
+console.log(sessionStorage.getItem("tempo"));
+sessionStorage.removeItem("tempo");
+
+//----------------------------------------------------------
