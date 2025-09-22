@@ -13,7 +13,7 @@
 
 //------------------------------------------------------
 
-//Local Storage
+//Local Storage (~5mb)
 // Data ni store cheyali ante localStorage.setItem("--var-name","--data")
 
 // localStorage.setItem("just","dat");
@@ -32,6 +32,17 @@
 // localStorage.setItem("just","dat");
 // localStorage.setItem("just", "change");
 
+//Note: localStorage lo data edaina store chesina, adi string format lo ne store avtundi
+// kani, array or object format lo store cheyali ante, JSON.stringify() ni use cheyali
+
+let array=["one","two","three"];
+localStorage.setItem("arr",JSON.stringify(array));
+
+// ippudu, array data ni get chayali ante, 
+let val = JSON.parse(localStorage.getItem("arr"));
+
+// JSON.parse() use chesi, string format lo unna data ni array or object format lo ki techukovachu
+
 
 //-----------------------------------------------------------
 
@@ -40,3 +51,12 @@
 // sessionStorage.removeItem("tempo");
 
 //----------------------------------------------------------
+
+
+// cookies: browser lo light weight data store cheyali ante cookies use chestamu (~ 4kb)
+// Eppudu aithe cookies lo data store chestamo, page load/reload ainappudu data anedi aa url ki attach aipotundi
+// Cookies anevi browser lo store ayyi untayi, so browser or tab close chesina kuda data delete avvadu, until manually deleted
+
+// document.cookie = "email=test@test.com";
+
+
