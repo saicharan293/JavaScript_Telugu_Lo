@@ -182,3 +182,119 @@ let palin = "check";
 //     return gcd(b, a % b);
 // }
 // console.log(gcd(x, y));
+
+//--------------------------------------------------------
+
+// Find the max of an array
+
+let arr = [1, 2, 3, 4, 5];
+
+// console.log(Math.max(...arr));
+// console.log(arr.reduce((max, curr)=> max > curr ? max : curr));
+
+let max = arr[0];
+
+// for (let i = 1; i < arr.length; i++){
+//     if(arr[i] > max){
+//         max = arr[i];
+//     }
+// }
+
+// for ( let num of arr){
+//     if(num > max) max = num;
+// }
+
+// console.log(max);
+//--------------------------------------------------------
+
+// Remove Duplicates from an array
+
+// let array = [1, 2, 2, 3, 4, 4, 5];
+
+// let unique = [];
+
+// for (let num of array){
+//     if(!unique.includes(num)){
+//         unique.push(num);
+//     }
+// }
+
+// let unique = array.filter((num, idx) => array.indexOf(num) == idx);
+
+// let unique = [...new Set(array)];
+
+// console.log(unique);
+
+//------------------------------------------
+
+// Find the length of an array without using length property
+
+// let length = 0;
+
+// for (let _ in arr){
+//     length++;
+// }
+
+// console.log(length);
+
+//--------------------------------------------------------
+
+// Create an object and access its properties
+
+let person = {
+    name: "funda",
+    isSingleThread: true,
+    age: 24
+}
+
+// for (let key in person){
+//     console.log(key, person[key]);
+// }
+
+// for (let key of Object.keys(person)){
+//     console.log(key, person[key]);
+// }
+
+// for(let val of Object.values(person)){
+//     console.log(val);
+// }
+
+// console.log(Object.values(person));
+
+// ---------------------------------------------------
+
+// count the occurances of a character in a string
+
+// let string = "javascript";
+
+// let char = "a";
+
+// let count = ( function(str, ch){
+//     let count = 0;
+//     for (let c of str){
+//         if( c == ch) count++;
+//     }
+//     return count;
+// })(string, char);
+
+// let count = [...string].reduce((acc, curr)=> curr == char ? acc ++ : acc, 0);
+
+// let count = [...string].filter(c => c == char).length;
+
+// console.log(count);
+
+//--------------------------------------------------------
+
+// Find the first non-repeating character in a string
+
+// let string = "swiss";
+
+// let char = null;
+
+// for (let c of string){
+//     if (string.indexOf(c) == string.lastIndexOf(c)){
+//         char = c;
+//         break;
+//     }
+// }
+// console.log(char);
