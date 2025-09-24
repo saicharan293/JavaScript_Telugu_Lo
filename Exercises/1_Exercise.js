@@ -241,11 +241,11 @@ let max = arr[0];
 
 // Create an object and access its properties
 
-let person = {
-    name: "funda",
-    isSingleThread: true,
-    age: 24
-}
+// let person = {
+//     name: "funda",
+//     isSingleThread: true,
+//     age: 24
+// }
 
 // for (let key in person){
 //     console.log(key, person[key]);
@@ -298,3 +298,14 @@ let person = {
 //     }
 // }
 // console.log(char);
+
+
+// --------------------------------------------------------
+
+// Find the substring in a string
+
+// let string = "javascript";
+
+// console.log(string.substring(4));
+// console.log(string.slice(4));
+
