@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>check boxes</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body{
+            width: 100%;
+            height: 100%;
+            background-color: #222;
+            color: white;
+        }
+
+        .main{
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+        }
+        form input, form label{
+            font-size: 26px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="main">
+        <h1>Choose your favorite trail</h1>
+        <form action="" class="hobby">
+            <input type="checkbox" id="hiking" name="hiking" value="hiking">
+            <label for="hiking"> Hiking</label><br>
+            <input type="checkbox" id="biking" name="biking" value="biking">
+            <label for="biking"> Biking</label><br>
+            <input type="checkbox" id="running" name="running" value="running">
+            <label for="running"> Running</label><br>
+            <input type="checkbox" id="swimming" name="swimming" value="swimming">
+            <label for="swimming"> Swimming</label><br>
+            <input type="checkbox" id="climbing" name="climbing" value="climbing">
+            <label for="climbing"> Climbing</label><br><br>
+            <input type="submit" value="Submit">
+          </form>
+    </div>
+    <script src="trail.js"></script>
+</body>
+</html>
