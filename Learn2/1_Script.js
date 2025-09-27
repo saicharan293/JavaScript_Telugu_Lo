@@ -131,23 +131,90 @@
 // ila chesinappudu, aa variable ni direct ga access kani, control kani cheyalemu.
 // ante, aa variable almost hide ayi untundi.
 
-function clickLimiter(){
-    let count = 0;
-    return function (){
-        if(count <5){
-            count++;
-            console.log(count);
+// function clickLimiter(){
+//     let count = 0;
+//     return function (){
+//         if(count <5){
+//             count++;
+//             console.log(count);
             
-        }else{
-            console.error("BAYYA NUVVU LIMIT CROSS CHESAV");
+//         }else{
+//             console.error("BAYYA NUVVU LIMIT CROSS CHESAV");
+//         }
+//     }
+// }
+
+// let ans = clickLimiter();
+// ans();
+// ans();
+// ans();
+// ans();
+// ans();
+// ans();
+
+
+//-----------------------------------------------------------------------------------------------
+
+// Toaster
+let parentToaster = document.getElementById("parentForToaster");
+
+function createToaster(config){
+    return function(toasterMsg){
+        let toastDiv = document.createElement("div");
+        toastDiv.classList.add("toast");
+        if(config.positionX === 'right'){
+            toastDiv.style.right = '20px';
+            parentToaster.style.alignItems = 'end';
         }
+        else{
+            toastDiv.style.left = '20px';
+            parentToaster.style.alignItems = 'start';
+        }
+        if(config.positionY === 'top'){
+            toastDiv.style.top = '20px';
+            parentToaster.style.top = '10px';
+        }
+        else{
+            toastDiv.style.bottom = '20px';
+            parentToaster.style.bottom = '10px';
+        }
+        toastDiv.textContent = toasterMsg;
+        parentToaster.appendChild(toastDiv);
+        document.body.appendChild(parentToaster);
+
+        // setTimeout(() => {
+        //     toastDiv.remove();
+        // }, config.duration);
     }
 }
 
-let ans = clickLimiter();
-ans();
-ans();
-ans();
-ans();
-ans();
-ans();
+// let toaster = createToaster({
+//     positionX: 'right',
+//     positionY: 'top',
+//     duration: 3000
+// })
+
+
+
+let topRightbtn = document.querySelector(".topright");
+let topleftbtn = document.querySelector(".topleft");
+let bottomRight = document.querySelector(".bottomright");
+let bottomleft = document.querySelector(".bottomleft");
+
+let toasterTopRight = createToaster({positionX: 'right', positionY: 'top', duration: 3000});
+let toasterTopLeft  = createToaster({positionX: 'left', positionY: 'top', duration: 3000});
+let toasterBottomRight = createToaster({positionX: 'right', positionY: 'bottom', duration: 3000});
+let toasterBottomLeft  = createToaster({positionX: 'left', positionY: 'bottom', duration: 3000});
+
+// Attach click listeners
+document.querySelector(".topright").addEventListener('click', () => toasterTopRight("Toast from Top Right!"));
+document.querySelector(".topleft").addEventListener('click', () => toasterTopLeft("Toast from Top Left!"));
+document.querySelector(".bottomright").addEventListener('click', () => toasterBottomRight("Toast from Bottom Right!"));
+document.querySelector(".bottomleft").addEventListener('click', () => toasterBottomLeft("Toast from Bottom Left!"));
+
+// Example toasts
+// toasterTopRight("This is first toast");
+// toasterTopRight("This is second toast");
+
+
+// time stamp 1:01:28
