@@ -44,19 +44,19 @@
 
 // Example:
 
-let a = 12;
+// let a = 12;
 
-function first(){
-    console.log(a);
-}
+// function first(){
+//     console.log(a);
+// }
 
 
-function second(){
-    let a = 10;
-    first();
-}
+// function second(){
+//     let a = 10;
+//     first();
+// }
 
-second(); // 12
+// second(); // 12
 
 // ikkada, first oka variable ni global scope lo declare chesukunnam.
 // first function lo aa variable ni access chesukunnam.
@@ -67,3 +67,87 @@ second(); // 12
 // But dynamic scoping lo, second function lo unna variable ni first function lo access chesukovali.
 
 // kani JS lo ila kadu. JS lo lexical scoping matrame untundi.
+
+
+// ---------------------------------------------------------------------------------------------
+
+// Closure -> closure anedi oka function, ee function inkoka function ni return chestundi.
+// aa return chesina function lo, outer function lo unna edo oka variable ni access chesi undali.
+
+// closure valla manam em chesukovachu ante,
+// private variable create chesukovachu.
+
+// function closure(){
+//     let count = 0;
+//     return function innerFunction(){
+//         count++;
+//         console.log(count);
+//     }
+// }
+
+// let ans = closure();
+// ans(); // 1
+
+// ikkada , interesting point enti ante, ans variable lo closure function call chesamu.
+// dani meaning enti ante, aa function call aipoindi. ante lopala unna innerFunction ni return chesindi.
+// kani, aa innerFunction lo, outer function lo unna count variable ni access chesukovachu.
+// normal ga, outer function execution aipoina tarvata, aa function lo unna variables
+// memory nundi delete avutayi. kani, closure valla, aa variable memory lo untundi.
+// anduke, manam count variable ni increment chesukoni, print chesukovachu.
+
+// Eppudu aithe closure create chestamo, appudu, oka back link create avutundi,
+// aa back link valla, outer function lo unna variables ni access chesukovachu.
+// ila, closure valla manam private variable create chesukovachu.
+// ante, aa variable ni manam direct ga access cheyaledu. kani, aa variable ni
+// access chesukoni, modify chesukoni, print chesukovachu.
+
+// deenine [[Environment]] lo store avtayy.
+
+
+// function CountForMe(){
+//     let count = 0;
+//     return function (){
+//         count++;
+//         console.log(count);
+//     }
+// }
+
+// let ans = CountForMe();
+// ans();
+// ans();
+
+//Note: ikkada first ans lo CountForMe function call chesamu.
+// Aa function ni call chesinappudu, aa function lo unna inner function ni return chesindi.
+// next ans() ni call chesinappudu, aa inner function execute aindi.
+// malli ans() ni execute chesinappudu, aa inner function lo unna count variable
+// increment aindi. ila, manam private variable create chesukoni, aa variable ni
+// access chesukoni, modify chesukoni, print chesukovachu.
+
+// ----------------------------------------------------------------------------------------------
+
+// Encapsulation -> Encapsulation ante, manam oka variable ni private ga
+// create chesukoni, aa variable ni access cheyadaniki, modify cheyadaniki
+// functions provide cheyadam.
+// ila chesinappudu, aa variable ni direct ga access kani, control kani cheyalemu.
+// ante, aa variable almost hide ayi untundi.
+
+function clickLimiter(){
+    let count = 0;
+    return function (){
+        if(count <5){
+            count++;
+            console.log(count);
+            
+        }else{
+            console.error("BAYYA NUVVU LIMIT CROSS CHESAV");
+        }
+    }
+}
+
+let ans = clickLimiter();
+ans();
+ans();
+ans();
+ans();
+ans();
+ans();
