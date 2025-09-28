@@ -278,9 +278,41 @@
 
 // global ---- window
 // function -- window
-// inside es5 (function) - object
-// inside es6 (arrow) - window
+// method inside es5 (function) - object
+// method inside es6 (arrow) - window
 // es6 (arrow) inside es5 (function) - object
 // es5 (function) inside es5 (function) - window (this will loose the value and traverse to the top parent)
 // class - blank object 
 
+// ------------------------------------------------------------------------------------------------------
+
+// call - apply - bind
+
+
+let obj = {
+    name : "sai",
+}
+
+// function test(a, b, c){
+//     console.log(this, a, b, c);
+    
+// }
+
+// test.call(obj, 1, 2, 3)
+
+// call ni use chesi object tho patu, vere ithara variables/parameters ni pampinchachu
+
+function test(a, b, c){
+    console.log(this, a, b, c);
+}
+
+// test.apply(obj, [1, 2, 3])
+
+// apply ni use chesi data ni send cheyali ante, first parameter object ayyi undali, 
+// second di array of data ayyi undali
+
+let fnc = test.bind(obj, 1, 2, 3);
+
+// bind ni use cheyali ante, danni oka variable lo store cheyali, endukante bind anedi, 
+// oka kotha function ni create chesi istadi. Aa kotthaga create chesina function ni call chesinappudu
+// , previous function activate aitadi.
