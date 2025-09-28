@@ -158,10 +158,22 @@
 // Toaster
 let parentToaster = document.getElementById("parentForToaster");
 
+document.body.appendChild(parentToaster);
+
 function createToaster(config){
     return function(toasterMsg){
-        let toastDiv = document.createElement("div");
-        toastDiv.classList.add("toast");
+        // parentToaster.innerHTML="";
+        let toastDiv ;
+        if (parentToaster.firstChild) {
+            toastDiv = parentToaster.firstChild;
+        } else {
+            toastDiv = document.createElement("div");
+            toastDiv.classList.add("toast");
+            parentToaster.appendChild(toastDiv);
+        }
+        // let toastDiv = document.createElement("div");
+        // toastDiv.classList.add("toast");
+        toastDiv.style="";
         if(config.positionX === 'right'){
             toastDiv.style.right = '20px';
             parentToaster.style.alignItems = 'end';
@@ -173,26 +185,21 @@ function createToaster(config){
         if(config.positionY === 'top'){
             toastDiv.style.top = '20px';
             parentToaster.style.top = '10px';
+            parentToaster.style.bottom = '';
         }
         else{
             toastDiv.style.bottom = '20px';
             parentToaster.style.bottom = '10px';
+            parentToaster.style.top = '';
         }
         toastDiv.textContent = toasterMsg;
-        parentToaster.appendChild(toastDiv);
-        document.body.appendChild(parentToaster);
+        // parentToaster.appendChild(toastDiv);
 
         // setTimeout(() => {
         //     toastDiv.remove();
         // }, config.duration);
     }
 }
-
-// let toaster = createToaster({
-//     positionX: 'right',
-//     positionY: 'top',
-//     duration: 3000
-// })
 
 
 
@@ -201,20 +208,15 @@ let topleftbtn = document.querySelector(".topleft");
 let bottomRight = document.querySelector(".bottomright");
 let bottomleft = document.querySelector(".bottomleft");
 
-let toasterTopRight = createToaster({positionX: 'right', positionY: 'top', duration: 3000});
-let toasterTopLeft  = createToaster({positionX: 'left', positionY: 'top', duration: 3000});
-let toasterBottomRight = createToaster({positionX: 'right', positionY: 'bottom', duration: 3000});
-let toasterBottomLeft  = createToaster({positionX: 'left', positionY: 'bottom', duration: 3000});
+const toasterTopRight = createToaster({positionX: 'right', positionY: 'top', duration: 3000});
+const toasterTopLeft  = createToaster({positionX: 'left', positionY: 'top', duration: 3000});
+const toasterBottomRight = createToaster({positionX: 'right', positionY: 'bottom', duration: 3000});
+const toasterBottomLeft  = createToaster({positionX: 'left', positionY: 'bottom', duration: 3000});
 
-// Attach click listeners
-document.querySelector(".topright").addEventListener('click', () => toasterTopRight("Toast from Top Right!"));
-document.querySelector(".topleft").addEventListener('click', () => toasterTopLeft("Toast from Top Left!"));
-document.querySelector(".bottomright").addEventListener('click', () => toasterBottomRight("Toast from Bottom Right!"));
-document.querySelector(".bottomleft").addEventListener('click', () => toasterBottomLeft("Toast from Bottom Left!"));
-
-// Example toasts
-// toasterTopRight("This is first toast");
-// toasterTopRight("This is second toast");
+topRightbtn.addEventListener('click', () => toasterTopRight("Toast from Top Right"));
+topleftbtn.addEventListener('click', () => toasterTopLeft("Toast from Top Left"));
+bottomRight.addEventListener('click', () => toasterBottomRight("Toast from Bottom Right"));
+bottomleft.addEventListener('click', () => toasterBottomLeft("Toast from Bottom Left"));
 
 
 // time stamp 1:01:28
