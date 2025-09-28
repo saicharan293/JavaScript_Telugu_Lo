@@ -257,6 +257,30 @@
 // So, Event handler lo this key word use chesinappudu, 
 // this lo current element store avtundi
 
-document.querySelector("h1").addEventListener("click", function (){
-    console.log(this.style.color = "red");
-})
+// document.querySelector("h1").addEventListener("click", function (){
+//     console.log(this.style.color = "red");
+// })
+
+// this Keyword in class
+// class lo this keyword lo blank object store avtadi
+
+// class Test{
+//     constructor(){
+//         console.log(this);
+//         this.a = 12;
+//     }
+// }
+// let test = new Test();
+
+
+//----------------------------------------------------------
+// use case --- value
+
+// global ---- window
+// function -- window
+// inside es5 (function) - object
+// inside es6 (arrow) - window
+// es6 (arrow) inside es5 (function) - object
+// es5 (function) inside es5 (function) - window (this will loose the value and traverse to the top parent)
+// class - blank object 
+
