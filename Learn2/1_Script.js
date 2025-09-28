@@ -156,67 +156,107 @@
 //-----------------------------------------------------------------------------------------------
 
 // Toaster
-let parentToaster = document.getElementById("parentForToaster");
+// let parentToaster = document.getElementById("parentForToaster");
 
-document.body.appendChild(parentToaster);
+// document.body.appendChild(parentToaster);
 
-function createToaster(config){
-    return function(toasterMsg){
-        // parentToaster.innerHTML="";
-        let toastDiv ;
-        if (parentToaster.firstChild) {
-            toastDiv = parentToaster.firstChild;
-        } else {
-            toastDiv = document.createElement("div");
-            toastDiv.classList.add("toast");
-            parentToaster.appendChild(toastDiv);
-        }
-        // let toastDiv = document.createElement("div");
-        // toastDiv.classList.add("toast");
-        toastDiv.style="";
-        if(config.positionX === 'right'){
-            toastDiv.style.right = '20px';
-            parentToaster.style.alignItems = 'end';
-        }
-        else{
-            toastDiv.style.left = '20px';
-            parentToaster.style.alignItems = 'start';
-        }
-        if(config.positionY === 'top'){
-            toastDiv.style.top = '20px';
-            parentToaster.style.top = '10px';
-            parentToaster.style.bottom = '';
-        }
-        else{
-            toastDiv.style.bottom = '20px';
-            parentToaster.style.bottom = '10px';
-            parentToaster.style.top = '';
-        }
-        toastDiv.textContent = toasterMsg;
-        // parentToaster.appendChild(toastDiv);
+// function createToaster(config){
+//     return function(toasterMsg){
+//         // parentToaster.innerHTML="";
+//         let toastDiv ;
+//         if (parentToaster.firstChild) {
+//             toastDiv = parentToaster.firstChild;
+//         } else {
+//             toastDiv = document.createElement("div");
+//             toastDiv.classList.add("toast");
+//             parentToaster.appendChild(toastDiv);
+//         }
+//         // let toastDiv = document.createElement("div");
+//         // toastDiv.classList.add("toast");
+//         toastDiv.style="";
+//         if(config.positionX === 'right'){
+//             toastDiv.style.right = '20px';
+//             parentToaster.style.alignItems = 'end';
+//         }
+//         else{
+//             toastDiv.style.left = '20px';
+//             parentToaster.style.alignItems = 'start';
+//         }
+//         if(config.positionY === 'top'){
+//             toastDiv.style.top = '20px';
+//             parentToaster.style.top = '10px';
+//             parentToaster.style.bottom = '';
+//         }
+//         else{
+//             toastDiv.style.bottom = '20px';
+//             parentToaster.style.bottom = '10px';
+//             parentToaster.style.top = '';
+//         }
+//         toastDiv.textContent = toasterMsg;
+//         // parentToaster.appendChild(toastDiv);
 
-        // setTimeout(() => {
-        //     toastDiv.remove();
-        // }, config.duration);
-    }
-}
+//         // setTimeout(() => {
+//         //     toastDiv.remove();
+//         // }, config.duration);
+//     }
+// }
 
+// let topRightbtn = document.querySelector(".topright");
+// let topleftbtn = document.querySelector(".topleft");
+// let bottomRight = document.querySelector(".bottomright");
+// let bottomleft = document.querySelector(".bottomleft");
 
+// const toasterTopRight = createToaster({positionX: 'right', positionY: 'top', duration: 3000});
+// const toasterTopLeft  = createToaster({positionX: 'left', positionY: 'top', duration: 3000});
+// const toasterBottomRight = createToaster({positionX: 'right', positionY: 'bottom', duration: 3000});
+// const toasterBottomLeft  = createToaster({positionX: 'left', positionY: 'bottom', duration: 3000});
 
-let topRightbtn = document.querySelector(".topright");
-let topleftbtn = document.querySelector(".topleft");
-let bottomRight = document.querySelector(".bottomright");
-let bottomleft = document.querySelector(".bottomleft");
-
-const toasterTopRight = createToaster({positionX: 'right', positionY: 'top', duration: 3000});
-const toasterTopLeft  = createToaster({positionX: 'left', positionY: 'top', duration: 3000});
-const toasterBottomRight = createToaster({positionX: 'right', positionY: 'bottom', duration: 3000});
-const toasterBottomLeft  = createToaster({positionX: 'left', positionY: 'bottom', duration: 3000});
-
-topRightbtn.addEventListener('click', () => toasterTopRight("Toast from Top Right"));
-topleftbtn.addEventListener('click', () => toasterTopLeft("Toast from Top Left"));
-bottomRight.addEventListener('click', () => toasterBottomRight("Toast from Bottom Right"));
-bottomleft.addEventListener('click', () => toasterBottomLeft("Toast from Bottom Left"));
+// topRightbtn.addEventListener('click', () => toasterTopRight("Toast from Top Right"));
+// topleftbtn.addEventListener('click', () => toasterTopLeft("Toast from Top Left"));
+// bottomRight.addEventListener('click', () => toasterBottomRight("Toast from Bottom Right"));
+// bottomleft.addEventListener('click', () => toasterBottomLeft("Toast from Bottom Left"));
 
 
-// time stamp 1:01:28
+// time stamp 1:116:39
+
+// ----------------------------------------------------------------------------------------------
+
+// this() keyword is a special keyword, endukante, remaining keywords yokka value same untadi,
+// but this keyword yokka value change avtune untundi
+
+// this() value , global lo window ane value ni istadi
+// console.log(this);
+
+
+// function lo, this keyword yokka value window ane vastadi
+
+// function test(){
+//     console.log(this);
+// }
+
+// test();
+
+// method ante, oka object lo oka function ni create chesinappudu, danni method antamu
+// ippudu this yokka value, method lo object aipotundi
+// ante, method lo this value ni call chesinappudu, adi aa complete object ni store chesukuntadi
+
+// let obj = {
+//     name : "Sai",
+//     sayName : function(){
+//         console.log(this.name);
+//     }
+// }
+
+// obj.sayName();
+
+//this use case in Event handler
+// Note: oka vela this ni arrow function lo use cheste, 
+// adi current element paina unna parent element ni consider chestundi. 
+// Anduke this value ni use cheyali ante normal function ni use cheyali.
+
+// So, Event handler lo this key word use chesinappudu, 
+// this lo current element store avtundi
+
+document.querySelector("h1").addEventListener("click", function (){
+    console.log(this.style.color = "red");
+})
