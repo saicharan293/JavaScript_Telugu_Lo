@@ -1,6 +1,6 @@
 // Scope ante,
 // manam create chese variable kani , functions kani,
-// entha area varaku excess cheyagalamu ani.
+// entha area varaku access cheyagalamu ani.
 
 // Functional Scope -> oka variable/function ni function lopala create chesthe,
 // adi function lopala matrame access cheyagalamu.
@@ -242,8 +242,9 @@
 
 // let obj = {
 //     name : "Sai",
+//     age: 29,
 //     sayName : function(){
-//         console.log(this.name);
+//         console.log(this);
 //     }
 // }
 
@@ -274,24 +275,26 @@
 
 
 //----------------------------------------------------------
-// use case --- value
+// use case --- this value
 
 // global ---- window
 // function -- window
-// method inside es5 (function) - object
-// method inside es6 (arrow) - window
+// method (function inside object) -- object
+// method inside es5 (method inside function) - object
+// method inside es6 (method inside arrow) - window
 // es6 (arrow) inside es5 (function) - object
 // es5 (function) inside es5 (function) - window (this will loose the value and traverse to the top parent)
 // class - blank object 
 
 // ------------------------------------------------------------------------------------------------------
 
-// call - apply - bind
+// call - apply - bind : this() keyword yokka direction ni window nundi, custom object ki shift 
+// cheyataniki ivi use chestamu
 
 
-let obj = {
-    name : "sai",
-}
+// let obj = {
+//     name : "sai",
+// }
 
 // function test(a, b, c){
 //     console.log(this, a, b, c);
@@ -300,19 +303,45 @@ let obj = {
 
 // test.call(obj, 1, 2, 3)
 
+// Note: normal ga this anedi "window" ni print cheyali, endukante this ni es5 method lo use chesam kabatte, 
+// kani, "Call" method ni use cheyatam vallana, adi "window" nundi "call" method lo pass chesina "obj" ane object 
+// ni replace chesindi, anduke {name: 'sai'} 1 2 3 , log aindi
+
 // call ni use chesi object tho patu, vere ithara variables/parameters ni pampinchachu
 
-function test(a, b, c){
-    console.log(this, a, b, c);
-}
+// function test(a, b, c){
+//     console.log(this, a, b, c);
+// }
 
 // test.apply(obj, [1, 2, 3])
 
 // apply ni use chesi data ni send cheyali ante, first parameter object ayyi undali, 
 // second di array of data ayyi undali
 
-let fnc = test.bind(obj, 1, 2, 3);
+// Rev Explanation :
+// -------------------
+
+// suppose, mana daggara data anedi array of values ga unte, apply() ni use cheyali 
+// or call ni use cheyali ante arr[0], arr[1],.... ila use chesi call() ni use cheyachu
+
+// let fnc = test.bind(obj, 1, 2, 3);
+// let person = {
+//   name: "sai",
+//   greet: function() {
+//     console.log("Hi " + this.name);
+//   }
+// };
+
+// setTimeout(person.greet.bind(person), 1000); // ❌ this = undefined (or window)
+
+// eppudaina kani setTimeout() lo object yokka function ni pass chesamu ante, 
+// aa function lo unna "this" value ni loose avtundi.
 
 // bind ni use cheyali ante, danni oka variable lo store cheyali, endukante bind anedi, 
-// oka kotha function ni create chesi istadi. Aa kotthaga create chesina function ni call chesinappudu
+// oka kotha function ni create chesi istadi and this yokka value loose avvadu
+// . Aa kotthaga create chesina function ni call chesinappudu
 // , previous function activate aitadi.
+
+// let f = person.greet.bind(person);
+
+// f(); // Hi sai
